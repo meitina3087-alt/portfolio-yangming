@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>方瑋慈｜北市聯陽明家醫科申請</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a clinic chart folder — slate cover band with portrait, then sectioned "chart tabs" down a single reading column, figures and certificates pulled wide. */
+:root{
+  --bg:#f6f7f9; --surface:#ffffff; --ink:#1f2a3d; --muted:#5d6779; --line:#dde1e8;
+  --slate:#45557a; --slate-ink:#ffffff; --apricot:#d9773a; --apricot-soft:#fbeadf;
+  --teal:#2f7f7a; --chip:#eceff5;
+  --f-display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141a24; --surface:#1c2431; --ink:#e7ebf2; --muted:#a3acbd; --line:#2e3949;
+  --slate:#2c3956; --slate-ink:#eef1f7; --apricot:#f0985e; --apricot-soft:#3a2a20;
+  --teal:#5fb8b1; --chip:#263042; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141a24; --surface:#1c2431; --ink:#e7ebf2; --muted:#a3acbd; --line:#2e3949;
+  --slate:#2c3956; --slate-ink:#eef1f7; --apricot:#f0985e; --apricot-soft:#3a2a20;
+  --teal:#5fb8b1; --chip:#263042; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+img{max-width:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+a{color:var(--teal)}
+:focus-visible{outline:2px solid var(--apricot);outline-offset:3px;border-radius:4px}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--slate)}
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--slate);color:var(--slate-ink)}
+nav.top .wrap{display:flex;align-items:center;gap:20px;padding-block:10px;overflow-x:auto;scrollbar-width:none}
+nav.top .brand{font-family:var(--f-display);font-weight:700;white-space:nowrap}
+nav.top ul{display:flex;gap:18px;list-style:none;margin:0 0 0 auto;padding:0}
+nav.top a{color:var(--slate-ink);text-decoration:none;font-size:14px;white-space:nowrap;opacity:.85}
+nav.top a:hover{opacity:1;text-decoration:underline;text-underline-offset:4px}
+
+/* hero */
+.hero{background:var(--slate);color:var(--slate-ink);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.35fr 1fr;gap:24px;align-items:end;padding-block:48px 0}
+.hero .txt{padding-bottom:48px;min-width:0}
+.eyebrow{font-family:var(--f-mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+.hero h1{font-size:clamp(44px,8vw,76px);font-weight:700;margin:10px 0 2px;letter-spacing:.04em}
+.hero .en{font-family:var(--f-mono);font-size:15px;opacity:.85}
+.hero .role{margin-top:18px;font-size:18px}
+.hero .role b{color:var(--slate-ink);font-weight:700}
+.traits{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.traits span{border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:2px 14px;font-size:14px}
+.hero figure{margin:0;align-self:end;display:flex;justify-content:center}
+.hero figure img{width:100%;max-width:340px;display:block}
+.vitals{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.2);border-radius:10px;overflow:hidden;margin-top:28px}
+.vitals div{background:var(--slate);padding:12px 14px}
+.vitals strong{display:block;font-family:var(--f-mono);font-size:26px;font-weight:500;line-height:1.2}
+.vitals small{font-size:13px;opacity:.85}
+.vitals strong.word{font-family:var(--f-display);font-size:26px;font-weight:700;line-height:1.2;color:var(--slate-ink)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stats div{background:var(--chip);border-radius:8px;padding:12px 14px}
+.stats strong{display:block;font-family:var(--f-mono);font-size:24px;font-weight:500;color:var(--slate);line-height:1.3}
+:root:not([data-theme="light"]) .stats strong{color:var(--ink)}
+:root[data-theme="light"] .stats strong{color:var(--slate)}
+.stats small{font-size:13px;color:var(--muted)}
+.chart .row.wide{grid-template-columns:150px 1fr 52px}
+.chart .axis.wide{grid-template-columns:150px 1fr 52px}
+.chart .bar i.t{background:var(--teal)}
+.chart .bar i.warn{background:var(--apricot)}
+.letter-pages{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.letter-pages button{padding:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff;cursor:zoom-in}
+.letter-pages img{display:block;width:100%}
+.cert.land img{object-fit:contain;background:#fff}
+@media (max-width:860px){.stats{grid-template-columns:repeat(2,1fr)}.letter-pages{grid-template-columns:1fr}.chart .row.wide,.chart .axis.wide{grid-template-columns:110px 1fr 52px}}
+
+/* sections */
+section{padding-block:64px;border-bottom:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:28px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(26px,4vw,34px)}
+.sec-head .en{font-family:var(--f-mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.lead{color:var(--muted);max-width:42em;margin-bottom:28px}
+
+/* quick */
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.quick article{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px}
+.quick h3{font-size:19px;margin-bottom:8px}
+.quick p{color:var(--muted);font-size:15px}
+.quick .k{font-family:var(--f-mono);font-size:12px;color:var(--apricot);letter-spacing:.08em;text-transform:uppercase}
+
+/* autobiography */
+.bio{display:grid;gap:36px;max-width:44em}
+.bio h3{font-size:21px;margin-bottom:10px}
+.bio p{text-align:justify}
+.bio mark{background:var(--apricot-soft);color:inherit;padding:0 3px;border-radius:3px}
+
+/* papers */
+.papers{display:grid;gap:28px}
+.paper{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;display:grid;gap:14px;min-width:0}
+.paper .meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.pill{font-size:13px;font-weight:500;border-radius:999px;padding:2px 12px;background:var(--chip);color:var(--ink);white-space:nowrap}
+.pill.pub{background:#2f7f7a;color:#fff}
+.pill.acc{background:var(--apricot);color:#fff}
+.pill.rev{border:1px dashed var(--muted);background:transparent;color:var(--muted)}
+.paper h3{font-size:20px}
+.paper .jr{font-style:italic;color:var(--muted);font-size:15px}
+.paper .au{font-size:15px}
+.paper .au b{color:var(--apricot)}
+.paper .role{border-left:3px solid var(--apricot);padding-left:12px;font-size:15px}
+details summary{cursor:pointer;color:var(--teal);font-weight:500;font-size:15px;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";}
+details[open] summary::before{content:"▾ ";}
+details .abs{margin-top:10px;font-size:15px;color:var(--muted);display:grid;gap:8px}
+details .abs b{color:var(--ink)}
+
+.chart{margin-top:4px;display:grid;gap:6px;font-size:14px}
+.chart .row{display:grid;grid-template-columns:84px 1fr 52px;align-items:center;gap:10px}
+.chart .bar{height:14px;background:var(--chip);border-radius:3px;position:relative;overflow:hidden}
+.chart .bar i{position:absolute;inset:0 auto 0 0;border-radius:3px;background:var(--slate)}
+:root:not([data-theme="light"]) .chart .bar i{background:var(--slate)}
+.chart .bar i.cn{background:var(--apricot)}
+.chart .v{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right}
+.chart .axis{display:grid;grid-template-columns:84px 1fr 52px;gap:10px;color:var(--muted);font-family:var(--f-mono);font-size:12px}
+.chart .axis div{display:flex;justify-content:space-between}
+.legend{display:flex;gap:16px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;background:var(--slate);vertical-align:-1px}
+.legend span.cn::before{background:var(--apricot)}
+.figcap{font-size:13px;color:var(--muted)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;font-size:14px;min-width:420px;width:100%}
+th,td{border-bottom:1px solid var(--line);padding:6px 10px;text-align:left}
+td.n,th.n{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.thumbs{display:flex;gap:12px;flex-wrap:wrap}
+.thumbs button{padding:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface);cursor:zoom-in;width:150px}
+.thumbs img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top}
+
+/* letter */
+.letter{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start}
+.letter .qmark{font-family:var(--f-display);font-size:96px;line-height:.8;color:var(--apricot)}
+.letter blockquote{margin:0;display:grid;gap:14px;max-width:40em}
+.letter blockquote p{font-family:var(--f-display);font-size:19px;line-height:1.75}
+.letter cite{font-style:normal;color:var(--muted);font-size:15px}
+.letter cite b{color:var(--ink)}
+
+/* AI */
+.ai-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.ai{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:grid;gap:8px;align-content:start;min-width:0}
+.ai h3{font-size:18px}
+.ai p{font-size:15px;color:var(--muted)}
+.tools{display:flex;flex-wrap:wrap;gap:6px}
+.tools span{font-family:var(--f-mono);font-size:12px;background:var(--chip);border-radius:4px;padding:1px 8px}
+.principle{margin-top:24px;background:var(--apricot-soft);border-radius:12px;padding:20px 22px;font-size:16px}
+.principle b{font-family:var(--f-display)}
+
+/* certs */
+.certs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cert{display:grid;gap:8px;align-content:start;min-width:0}
+.cert button{padding:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface);cursor:zoom-in}
+.cert img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top}
+.cert .t{font-size:14px;font-weight:500;line-height:1.5}
+.cert .d{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.cert.noimg .ph{aspect-ratio:3/4;border:1px dashed var(--line);border-radius:8px;display:grid;place-items:center;text-align:center;padding:12px;color:var(--muted);font-size:13px;background:var(--surface)}
+.cert.noimg .ph strong{display:block;font-family:var(--f-mono);font-size:28px;color:var(--teal);font-weight:500}
+
+/* service */
+.svc{display:grid;grid-template-columns:1fr 1.4fr;gap:36px;align-items:start}
+.svc ul{list-style:none;padding:0;margin:0;display:grid;gap:0}
+.svc li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.svc li span:last-child{color:var(--muted);text-align:right}
+.awards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.awards .cert img{aspect-ratio:auto}
+
+/* plan */
+.plan{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:3px solid var(--slate)}
+.plan .stage{padding:20px 20px 0 0;min-width:0}
+.plan .stage+.stage{padding-left:20px;border-left:1px solid var(--line)}
+.plan .when{font-family:var(--f-mono);font-size:13px;color:var(--apricot)}
+.plan h3{font-size:20px;margin:4px 0 12px}
+.plan ul{margin:0;padding-left:1.1em;font-size:15px;display:grid;gap:4px}
+.plan li.hl{color:var(--apricot);font-weight:500}
+.photos{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin-top:32px}
+.photos img{width:100%;height:220px;object-fit:cover;border-radius:10px;display:block}
+
+/* edu */
+.edu{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.edu>div{border-top:2px solid var(--teal);padding-top:10px}
+.edu .y{font-family:var(--f-mono);font-size:14px;color:var(--teal)}
+.edu .p{font-weight:500}
+
+/* contact */
+.contact{background:var(--slate);color:var(--slate-ink);border-bottom:0}
+.contact .sec-head .en{color:var(--slate-ink);opacity:.75}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cgrid div{background:rgba(255,255,255,.08);border-radius:10px;padding:16px 18px;display:grid;gap:6px;min-width:0}
+.cgrid small{opacity:.75;font-size:13px}
+.cgrid .val{font-family:var(--f-mono);font-size:16px;word-break:break-all;user-select:all}
+.cgrid button{justify-self:start;font:inherit;font-size:13px;background:transparent;color:var(--slate-ink);border:1px solid rgba(255,255,255,.4);border-radius:6px;padding:2px 10px;cursor:pointer}
+footer{background:var(--slate);color:var(--slate-ink);opacity:.95;font-size:13px}
+footer .wrap{padding-block:18px 28px;border-top:1px solid rgba(255,255,255,.15)}
+
+/* why landseed */
+.why{display:grid;grid-template-columns:repeat(2,1fr);gap:24px 32px}
+.why article.wide{grid-column:1/-1}
+.why article{border-top:3px solid var(--apricot);padding-top:14px;display:grid;gap:8px;align-content:start;min-width:0}
+.why h3{font-size:19px}
+.why p{font-size:15px;color:var(--muted)}
+.first{margin-top:28px;display:flex;flex-direction:column;gap:4px;background:var(--slate);color:var(--slate-ink);border-radius:14px;border-left:6px solid var(--apricot);padding:18px 26px;box-shadow:0 6px 18px rgba(46,58,92,.18)}
+.first .tag{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#FFD2B3}
+.first strong{font-family:var(--f-display);font-size:clamp(22px,3.6vw,28px);line-height:1.35;text-wrap:balance;color:#FFD2B3}
+.first strong em{font-style:normal;color:#FFD2B3}
+.first span{opacity:.9;font-size:15px}
+.hero .first-tag{display:inline-block;margin-left:8px;font-size:13px;border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:1px 10px;vertical-align:2px}
+/* field gallery */
+.field{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.field figure{margin:0;display:grid;gap:6px;align-content:start;min-width:0}
+.field button{padding:0;border:0;border-radius:10px;overflow:hidden;cursor:zoom-in;background:var(--chip)}
+.field img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 30%}
+.field figcaption{font-size:13px;color:var(--muted);line-height:1.6}
+.field figure.wide{grid-column:span 2}
+.field figure.wide img{aspect-ratio:8/5}
+@media (max-width:860px){.why{grid-template-columns:1fr}.field{grid-template-columns:1fr}.field figure.wide{grid-column:auto}.field img,.field figure.wide img{aspect-ratio:4/3}}
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(10,14,22,.88);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lb img{max-height:88vh;max-width:min(900px,100%);border-radius:6px;background:#fff}
+.lb p{color:#fff;font-size:14px;margin-top:8px;text-align:center}
+.lb button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:calc(14px + env(safe-area-inset-right,0px));font-size:15px;background:#fff;color:#1f2a3d;border:0;border-radius:999px;padding:6px 14px;cursor:pointer}
+
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero figure{order:-1;position:relative;padding-top:40px}
+  .hero figure::before{content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:min(290px,80%);height:calc(100% - 8px);border-radius:200px 200px 28px 28px;background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,.06))}
+  .hero figure img{max-width:230px;position:relative;-webkit-mask-image:linear-gradient(#000 80%,transparent);mask-image:linear-gradient(#000 80%,transparent)}
+  .hero .txt{padding-bottom:36px}
+  .quick,.ai-grid,.svc,.plan,.cgrid{grid-template-columns:1fr}
+  .plan .stage,.plan .stage+.stage{padding:18px 0;border-left:0;border-bottom:1px solid var(--line)}
+  .certs{grid-template-columns:repeat(2,1fr)}
+  .edu{grid-template-columns:repeat(2,1fr)}
+  .photos{grid-template-columns:1fr 1fr}
+  .photos img:first-child{grid-column:1/-1}
+  .letter{grid-template-columns:1fr}
+  .letter .qmark{font-size:64px}
+}
+@media (max-width:480px){
+  .vitals{grid-template-columns:repeat(2,1fr)}
+  .awards{grid-template-columns:1fr 1fr}
+  body{font-size:15px}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+
+
+<nav class="top" aria-label="頁面導覽">
+  <div class="wrap">
+    <ul>
+      <li><a href="#why">為何選擇北市聯陽明</a></li>
+      <li><a href="#bio">自傳</a></li>
+      <li><a href="#research">學術發表</a></li>
+      <li><a href="#letter">師長推薦</a></li>
+      <li><a href="#ai">AI 應用</a></li>
+      <li><a href="#certs">家醫證書</a></li>
+      <li><a href="#service">服務獎項</a></li>
+      <li><a href="#field">服務足跡</a></li>
+      <li><a href="#plan">學習計畫</a></li>
+      <li><a href="#contact">聯絡</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="txt">
+      <div class="eyebrow">Family Medicine Residency Applicant</div>
+      <h1>方瑋慈</h1>
+      <div class="en">Wei-Tzu Fang, MD</div>
+      <p class="role">林口長庚紀念醫院 PGY2　→　申請<b>臺北市立聯合醫院陽明院區 家庭醫學科住院醫師</b></p>
+      <div class="traits"><span>負責</span><span>真誠</span><span>正直</span><span>善良</span><span>溫和而堅定</span></div>
+      <div class="vitals">
+        <div><strong>3</strong><small>研究論文（含 2 篇第一作者）</small></div>
+        <div><strong>8</strong><small>家醫相關訓練證明</small></div>
+        <div><strong>150<span style="font-size:15px">h</span></strong><small>在學志願服務時數</small></div>
+        <div><strong class="word">志向</strong><small>安寧緩和、社區醫學</small></div>
+      </div>
+    </div>
+    <figure><img src="img/photo.webp" alt="方瑋慈醫師穿著白袍的形象照"></figure>
+  </div>
+</header>
+
+<main>
+<section id="quick">
+  <div class="wrap">
+    <div class="sec-head"><h2>30 秒認識我</h2><span class="en">At a glance</span></div>
+    <div class="quick">
+      <article><div class="k">Community</div><h3>走進社區，走進偏鄉</h3><p>大學起參與羅卡達山地服務隊，深耕桃園復興鄉部落多年，從隊員做到生活長；也曾赴貴州侗族小學擔任志工。</p></article>
+      <article><div class="k">Research</div><h3>研究從問題出發</h3><p>與北榮新竹分院陳曾基院長合作三篇論文，主題橫跨文獻計量、AI 答題準確性與醫院網站英文可近性。</p></article>
+      <article><div class="k">AI literacy</div><h3>會用 AI，也會檢查 AI</h3><p>兩篇第一作者研究都在評估 AI 的可靠度。我的原則是 AI 負責加速，人工負責把關，結論一律經人工複核。</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head"><h2>為什麼選擇北市聯陽明</h2><span class="en">Why Taipei City Hospital, Yangming</span></div>
+    <p class="lead">臺北市立聯合醫院陽明院區立足士林、北投，是守護北台北社區健康的公立醫院，兼具貼近社區的溫度與聯醫體系完整的公衛及在宅醫療資源。</p>
+    <div class="why">
+      <article><h3>立志在台北長期耕耘</h3><p>芝山、天母、士林與北投兼具住宅社區、老舊眷村與山區聚落，高齡長者比例高，家庭型態多元，正需要能長期陪伴的家庭醫師。我希望未來可以長期留任醫院。</p></article>
+      <article><h3>團隊氣氛融洽</h3><p>師長願教、同儕互助，是我最嚮往的學習環境。擔任醫學營隊輔長與山地服務隊生活長的經驗讓我相信，好的團隊能帶出更好的照護。</p></article>
+      <article><h3>在宅急症照護的先行者</h3><p>聯醫推動的藍鵲在宅急症照護（Hospital at Home），讓肺炎、泌尿道感染等常見急症的長者能在家中或機構接受治療，減少往返急診與住院的負擔。這正是我心中所願：將醫療帶出診間，走入民眾的家中。</p></article>
+      <article><h3>成熟的社區照護網絡</h3><p>居家醫療個案多，從預防保健、慢病管理、長照轉介到居家與安寧，有完整連續的照護鏈。我已完成長照共同訓練、居家失能個案家庭醫師照護方案與社區安寧照護訓練，期待在這裡實際投入。</p></article>
+      <article class="wide"><h3>公立醫院，第一線了解政府政策</h3><p>聯醫是臺北市的公立醫院，居家醫療、長照與在宅急症照護等政策都在這裡落實。我希望從第一線了解政策如何從規劃走進病人家中，這也連結我攻讀公衛碩士的長期目標。</p></article>
+    </div>
+    <div class="first"><p class="tag">First choice</p><strong>北市聯陽明家醫科是我的第一志願</strong><span>希望在陽明院區完成家醫訓練並長期留任，成為士林、北投在地家庭信賴的家庭醫師。</span></div>
+  </div>
+</section>
+
+<section id="bio">
+  <div class="wrap">
+    <div class="sec-head"><h2>我的自傳</h2><span class="en">Autobiography</span></div>
+    <div class="bio">
+      <div>
+        <h3>細膩觀察與伸縮自如</h3>
+        <p>我叫方瑋慈，來自桃園一個溫馨的家庭。因為爸爸在台積電工作的緣故，我從小輾轉於美國、荷蘭、廣州、台中、新竹等地求學，多次轉學經驗迫使我很早學會觀察環境、體察他人情緒，也磨練出<mark>圓融待人與快速適應陌生環境的能力。</mark>媽媽一直教導我為自己的選擇負責，這份身教也在我與姐姐心中種下行醫的種子；如今姐姐是台北榮總眼科第二年住院醫師，我們姊妹倆互相砥礪，讓我更確定，成為對社會有貢獻的醫師，是我從小到大最想走的路。</p>
+      </div>
+      <div>
+        <h3>社會服務與領導能力</h3>
+        <p>高中起，我<mark>投入社會服務</mark>，曾赴貴州侗族小學擔任志工，並在長庚大學加入羅卡達山地服務隊，深耕復興鄉原住民部落多年，從隊員到生活長，協助衛教活動、獨居長者家訪與隊務統籌。<mark>這些經驗讓我體會到，醫療必須走出醫院、與社區結合，才能真正照顧到最需要的人。</mark>另外，大三擔任醫學營隊輔長期間，我負責整個梯次的活動規劃、時間掌控與人力調度，並在突發狀況發生時迅速調整安排，這段經歷培養了我的<mark>領導能力，以及在壓力下快速判斷、解決問題的能力。</mark></p>
+      </div>
+      <div>
+        <h3>臨床工作與研究能力</h3>
+        <p>臨床實習期間，我學習從症狀推演鑑別診斷、觀察師長化解病人情緒的溝通技巧，也逐漸對臨床研究產生興趣。這份興趣延續到與臺北榮民總醫院新竹分院陳曾基院長合作的研究中。<mark>我的兩篇第一作者研究，一篇評估 14 家 AI 軟體回答家醫考題的準確性，另一篇比較人工與 AI 評分全台醫學中心網站英文資訊的差異。</mark>研究讓我看見 AI 能大幅提升效率，但臨床判斷仍需要醫師把關。</p>
+        <p style="margin-top:12px"><mark>「山不來就我，我就去就山」</mark>是我對家醫科的理解：家醫科的核心價值包括主動走進社區與資源匱乏的角落。在復興鄉部落家訪獨居長者、在貴州侗族小學服務的經驗，讓我看見醫療走出醫院之後能帶來的改變。我也體會到，要讓醫療長久留在需要的地方，除了以人為中心的細膩，還需要主動連結各方資源的韌性，這些都讓我更堅定選擇家庭醫學科。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="sec-head"><h2>學術發表</h2><span class="en">Publications</span></div>
+    <div class="papers">
+
+      <article class="paper">
+        <div class="meta"><span class="pill acc">已接受刊登 2026/07</span><span class="pill">原著論文</span><span class="pill">第一作者</span></div>
+        <h3>人工智慧軟體答題的準確性：以家庭醫學期刊通訊考題為例</h3>
+        <p class="jr">台灣家庭醫學雜誌（Taiwan Journal of Family Medicine）</p>
+        <p class="au"><b>方瑋慈</b>、陳曾基*（*通訊作者）</p>
+        <p class="role">將《家庭醫學與基層醫療》2025 年全年 192 題通訊考題，一次輸入中美共 14 家 AI 軟體，比較答題可行性、正確率、解析完整度與錯誤類型。題目週四敲定，週日完稿。</p>
+        <div class="chart" role="img" aria-label="11 家有效作答 AI 軟體的正確率，介於 88.0% 到 95.8%">
+          <div class="legend"><span>美國軟體</span><span class="cn">中國軟體</span><span>橫軸自 80% 起算</span></div>
+          <div id="bars"></div>
+          <div class="axis"><span></span><div><span>80%</span><span>90%</span><span>100%</span></div><span></span></div>
+          <p class="figcap">11 家可一次完整作答 192 題，平均正確率 93.0%。Microsoft Copilot、小藝、智譜清言因字數限制或技術問題未能完整作答。</p>
+        </div>
+        <details open>
+          <summary>摘要</summary>
+          <div class="abs">
+            <p><b>結果：</b>錯誤題目集中於本土公共衛生政策與在地流行病學、臨床指引切點值與版本更新、疾病診斷準則細節，以及否定題型。其中 2 題被全部 11 家軟體答錯。</p>
+            <p><b>結論：</b>AI 軟體在繁體中文家醫專業題目已有相當高的正確率，但對本土資料與最新指引仍有弱點。醫療人員應保有批判性思辨，把 AI 當輔助工具，並搭配多家軟體交叉比對與人工複核。</p>
+          </div>
+        </details>
+        <div class="thumbs"><button type="button" data-full="img/accept.jpg" data-cap="台灣家庭醫學雜誌稿件接受通知（2026/07/24）"><img src="img/accept.jpg" alt="稿件接受通知縮圖"></button></div>
+      </article>
+
+      <article class="paper">
+        <div class="meta"><span class="pill rev">修稿複審中</span><span class="pill">Original Article</span><span class="pill">第一作者</span><span class="pill">JCMA-D-26-00475</span></div>
+        <h3>English information on Taiwan's medical center websites: manual vs. LLM scoring</h3>
+        <p class="jr">Journal of the Chinese Medical Association（JCMA）· 修訂稿 2026/10/09 送出</p>
+        <p class="au"><b>Fang WT</b>, Fang WC, Yang FY, Chen TJ*</p>
+        <p class="role">以改編的 MHCIE 量表（滿分 17 分），評估全台 23 家醫學中心網站的英文資訊。兩位評分者各自獨立評分後依協調規則整合為參考標準；ChatGPT、Claude、Gemini 以相同提示詞與評分標準、用內建瀏覽功能自行瀏覽網站評分，再以 ICC、加權 κ、MAE 與 Bland-Altman 比較一致性。修稿時依審稿意見加入第二位評分者與完整的一致性分析。</p>
+        <div class="stats">
+          <div><strong>13.52</strong><small>參考標準平均總分（/17）</small></div>
+          <div><strong>0.83</strong><small>兩位人工評分者 ICC</small></div>
+          <div><strong>≤ 0.30</strong><small>三家 AI 與參考標準 ICC</small></div>
+          <div><strong>47.8%</strong><small>提供英文以外語言的醫院</small></div>
+        </div>
+        <div class="chart" role="img" aria-label="六個評分面向的參考標準得分佔滿分百分比">
+          <div class="figcap" style="font-weight:500;color:var(--ink)"><span>各面向得分佔滿分比例（參考標準，POMP）</span></div>
+          <div id="pomp"></div>
+          <div class="axis wide"><span></span><div><span>0%</span><span>50%</span><span>100%</span></div><span></span></div>
+          <p class="figcap">急診資訊最低（58.0%），健保與費用資訊的院際差異最大（SD = 1.07）。</p>
+        </div>
+        <div class="tbl">
+          <table>
+            <thead><tr><th>評分者</th><th class="n">總分 Mean ± SD</th><th class="n">與參考標準差異</th><th class="n">ICC(2,1)</th><th class="n">MAE</th></tr></thead>
+            <tbody>
+              <tr><td>人工參考標準</td><td class="n">13.52 ± 2.73</td><td class="n">—</td><td class="n">0.83*</td><td class="n">1.22*</td></tr>
+              <tr><td>Claude</td><td class="n">13.91 ± 2.92</td><td class="n">+0.39</td><td class="n">0.29</td><td class="n">2.57</td></tr>
+              <tr><td>Gemini</td><td class="n">12.26 ± 3.40</td><td class="n">−1.26</td><td class="n">0.30</td><td class="n">2.65</td></tr>
+              <tr><td>ChatGPT</td><td class="n">11.39 ± 2.04</td><td class="n">−2.13</td><td class="n">0.16</td><td class="n">2.83</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="figcap">*兩位人工評分者之間（整合前）的一致性。</p>
+        <details open>
+          <summary>摘要</summary>
+          <div class="abs">
+            <p><b>Background：</b>Language barriers impede healthcare access for foreign patients, and hospital websites are a primary source of pre-visit information. English-language information on Taiwan's medical center websites had not been systematically assessed.</p>
+            <p><b>Methods：</b>All 23 designated medical centers were scored with an adapted MHCIE scale (five domains plus a binary specialty bonus item; maximum 17). Two raters scored independently and were reconciled into a reference standard; ChatGPT (GPT-4o), Claude (Claude 3.5 Sonnet) and Gemini (Gemini 3.5 Pro) scored the same websites in parallel.</p>
+            <p><b>Results：</b>Mean reconciled total score was 13.52 ± 2.73 (range 8–17). Emergency health services information had the lowest relative score (58.0% of maximum); national health insurance information varied most (SD = 1.07). Mean differences were −2.13 (ChatGPT), +0.39 (Claude) and −1.26 (Gemini). Human inter-rater agreement (ICC = 0.83) exceeded every LLM's agreement with the reference standard (ICC ≤ 0.30). Only 11 hospitals (47.8%) offered languages other than English.</p>
+            <p><b>Conclusion：</b>LLMs show potential as supplementary tools in well-defined domains but cannot yet replace human evaluation.</p>
+          </div>
+        </details>
+      </article>
+
+      <article class="paper">
+        <div class="meta"><span class="pill pub">已發表 2023</span><span class="pill">Research Letter</span><span class="pill">第二作者</span><span class="pill">IF 4.3</span></div>
+        <h3>The Impact of COVID-19 Pandemic on Scientific Research: an Upcoming New Wave?</h3>
+        <p class="jr">Journal of General Internal Medicine 2023;38(5):1312 · 美國一般內科學會會刊 · <a href="https://doi.org/10.1007/s11606-022-08018-x" target="_blank" rel="noopener">doi:10.1007/s11606-022-08018-x</a></p>
+        <p class="au">Fang WC, <b>Fang WT</b>, Chen TJ*</p>
+        <p class="role">醫學系三年級時參與。回應 JGIM 前一期 Cosentino 等人觀察到 COVID-19 論文比例激增的文章，我們從 WHO COVID-19 資料庫檢視兩年內的英文文獻計量研究。我負責收集並逐篇分類這些文章的主題與研究模式。這是我第一次參與研究，也是與陳曾基老師合作的起點。</p>
+        <div class="stats">
+          <div><strong>444,693</strong><small>WHO 資料庫收錄的 COVID-19 文獻（至 2021 年底）</small></div>
+          <div><strong>487</strong><small>英文文獻計量研究</small></div>
+          <div><strong>338</strong><small>屬生物醫學領域</small></div>
+          <div><strong>9 個月</strong><small>研究涵蓋期間中位數（Q1 5、Q3 13）</small></div>
+        </div>
+        <div class="chart" role="img" aria-label="487 篇文獻計量研究中各種研究模式的篇數">
+          <div class="figcap" style="font-weight:500;color:var(--ink)"><span>文獻計量研究的常見模式（篇數，n = 487）</span></div>
+          <div id="jgimbars"></div>
+          <div class="axis wide"><span></span><div><span>0</span><span>100</span><span>200</span></div><span></span></div>
+          <p class="figcap">最常見的做法是比較疫情前後的研究產出；許多研究只是換個主題或時間範圍重做一次。</p>
+        </div>
+        <details open>
+          <summary>摘要與觀點</summary>
+          <div class="abs">
+            <p><b>背景：</b>自 2019 年 12 月疫情爆發，COVID-19 相關論文急速增加，以數量為基礎的文獻計量研究也隨之大量出現。</p>
+            <p><b>發現：</b>許多文獻計量研究彼此重複且零碎，只是更換主題或時間範圍。除了 93 篇探討整體研究趨勢，多數聚焦特定領域、疾病、族群、地區、作者或引用議題；49 篇結合多種參數，例如低中收入國家的皮膚科文獻。</p>
+            <p><b>觀點：</b>過多的文獻計量研究會佔用非 COVID-19 研究的資源。若每篇原著摘要都能依 STROBE、PRISMA、CONSORT 等報告指引提供足夠資訊，搜尋引擎就能建立完整資料庫，讓研究者直接線上分析，把研究時間與期刊版面留給更有價值的研究。</p>
+          </div>
+        </details>
+        <div class="thumbs"><button type="button" data-full="img/jgim.jpg" data-cap="J Gen Intern Med 2023;38(5):1312 刊登頁面"><img src="img/jgim.jpg" alt="JGIM 刊登頁面縮圖"></button></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="letter">
+  <div class="wrap">
+    <div class="sec-head"><h2>師長推薦</h2><span class="en">Recommendation</span></div>
+    <div class="letter">
+      <div class="qmark" aria-hidden="true">“</div>
+      <blockquote>
+        <p>合作三篇論文，全程透過 email 與 LINE 討論，從未見過面。第二篇論文週四深夜敲定題目，週日完稿。AI 時代，效率飛速，後生可畏。</p>
+        <p>第三篇英文論文歷時兩個月，可見方醫師韌性十足、鍥而不捨的軌跡。她已掌握研究方法與寫作技巧，也習得 AI agents 的運作。</p>
+        <p>擔任主治醫師與主管三十餘年，方醫師在態度與能力上，無疑是佼佼者，值得珍惜。期待方醫師未來能在貴院學習，發光發熱。</p>
+        <cite><b>陳曾基 院長</b>　臺北榮民總醫院新竹分院｜推薦函摘錄，2026 年 7 月 27 日</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="ai">
+  <div class="wrap">
+    <div class="sec-head"><h2>AI 應用</h2><span class="en">How I work with AI</span></div>
+    <p class="lead">以下是我在研究與學習中實際使用 AI 的方式。每一項的產出都經過我人工核對後才定稿。</p>
+    <div class="ai-grid">
+      <article class="ai"><h3>把 AI 當研究對象</h3><p>設計研究評估 14 家 AI 軟體的醫學答題能力，以及 3 家 AI 的網站評分能力，量化它們在哪裡可靠、在哪裡會出錯。</p><div class="tools"><span>ChatGPT</span><span>Gemini</span><span>Claude</span><span>DeepSeek</span><span>+10</span></div></article>
+      <article class="ai"><h3>資料比對與人工複核</h3><p>192 題 × 11 家的答案，先由 AI 輔助比對標準答案，再由我逐題人工複核，確保正確率判定無誤。</p><div class="tools"><span>LLM-assisted check</span><span>Manual review</span></div></article>
+      <article class="ai"><h3>英文寫作與潤稿</h3><p>JCMA 投稿稿件以 AI 協助語言編修與可讀性，研究設計、資料分析與詮釋則完全由作者完成，並在致謝中如實揭露。</p><div class="tools"><span>Claude</span><span>Jenni AI</span><span>Paperpal</span></div></article>
+      <article class="ai"><h3>圖表與網站製作</h3><p>論文圖表以 Python 繪製；這個面試網站則由我與 Claude 協作完成架構規劃與前端製作。</p><div class="tools"><span>Python</span><span>matplotlib</span><span>Claude</span><span>HTML/CSS</span></div></article>
+    </div>
+    <p class="principle"><b>AI 應用的結論：</b>AI 負責處理「效率」，而人類負責提供「批判性思維」。</p>
+  </div>
+</section>
+
+<section id="certs">
+  <div class="wrap">
+    <div class="sec-head"><h2>家醫相關證書</h2><span class="en">Certificates</span></div>
+    <p class="lead">PGY 期間主動完成的家醫核心訓練，涵蓋慢性病、長照、安寧、預立醫療、戒菸與旅遊醫學。點選可放大。</p>
+    <div class="certs" id="certGrid"></div>
+  </div>
+</section>
+
+<section id="service">
+  <div class="wrap">
+    <div class="sec-head"><h2>領導、服務與獎項</h2><span class="en">Leadership &amp; awards</span></div>
+    <div class="svc">
+      <ul>
+        <li><span>羅卡達山地服務隊</span><span>生活長</span></li>
+        <li><span>暑期醫學營</span><span>隊輔長</span></li>
+        <li><span>白袍典禮</span><span>舞台組組長</span></li>
+        <li><span>醫學系</span><span>副班代</span></li>
+        <li><span>貴州侗族小學</span><span>國際志工</span></li>
+        <li><span>毛克利國際志工</span><span>志工</span></li>
+        <li><span>在學表現</span><span>小功 ×1、嘉獎 ×3</span></li>
+      </ul>
+      <div class="awards" id="awardGrid"></div>
+    </div>
+  </div>
+</section>
+
+<section id="field">
+  <div class="wrap">
+    <div class="sec-head"><h2>服務足跡</h2><span class="en">In the field</span></div>
+    <p class="lead">從桃園復興鄉部落到貴州侗族小學，我始終相信，醫療不該因為距離而缺席。點選照片可放大。</p>
+    <div class="field">
+      <figure class=""><button type="button" data-full="img/lokahi.jpg" data-cap="羅卡達山地服務隊：在桃園復興鄉部落陪孩子進行衛教活動"><img src="img/lokahi.jpg" alt="羅卡達山地服務隊：在桃園復興鄉部落陪孩子進行衛教活動" loading="lazy"></button><figcaption>羅卡達山地服務隊：在桃園復興鄉部落陪孩子進行衛教活動</figcaption></figure>
+      <figure class="wide"><button type="button" data-full="img/port-004.jpg" data-cap="林口長庚家醫科門診"><img src="img/port-004.jpg" alt="林口長庚家醫科門診" loading="lazy"></button><figcaption>林口長庚家醫科門診</figcaption></figure>
+      <figure class="wide"><button type="button" data-full="img/guizhou.jpg" data-cap="毛克利愛心旅行海外國際志工：貴州侗族小學"><img src="img/guizhou.jpg" alt="毛克利愛心旅行海外國際志工：貴州侗族小學" loading="lazy"></button><figcaption>毛克利愛心旅行海外國際志工：貴州侗族小學</figcaption></figure>
+      <figure class=""><button type="button" data-full="img/port-005.jpg" data-cap="部落服務：與小朋友合影"><img src="img/port-005.jpg" alt="部落服務：與小朋友合影" loading="lazy"></button><figcaption>部落服務：與小朋友合影</figcaption></figure>
+      <figure class=""><button type="button" data-full="img/candle.jpg" data-cap="毛克利國際志工：與貴州孩子們的燭光晚會"><img src="img/candle.jpg" alt="毛克利國際志工：與貴州孩子們的燭光晚會" loading="lazy"></button><figcaption>毛克利國際志工：與貴州孩子們的燭光晚會</figcaption></figure>
+      <figure class=""><button type="button" data-full="img/sapporo.jpg" data-cap="2024/08 日本札幌醫院實習，與形成外科四ッ柳高敏醫師合影"><img src="img/sapporo.jpg" alt="2024/08 日本札幌醫院實習，與形成外科四ッ柳高敏醫師合影" loading="lazy"></button><figcaption>2024/08 日本札幌醫院實習，與形成外科四ッ柳高敏醫師合影</figcaption></figure>
+      <figure class=""><button type="button" data-full="img/port-006.jpg" data-cap="部落服務：長者家訪"><img src="img/port-006.jpg" alt="部落服務：長者家訪" loading="lazy"></button><figcaption>部落服務：長者家訪</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="plan">
+  <div class="wrap">
+    <div class="sec-head"><h2>學習計畫</h2><span class="en">Learning plan</span></div>
+    <div class="plan">
+      <div class="stage"><div class="when">PGY2 → R1</div><h3>短期計畫</h3><ul>
+        <li>熟悉家醫科門診架構與流程</li><li>精進衛教溝通與跨科協調能力</li><li class="hl">取得 AI 應用規劃師認證</li><li class="hl">報名法律 20 學分課程</li><li class="hl">學習安寧緩和醫學核心課程（80 小時學術課程）</li><li class="hl">取得勞工體格與健康檢查醫師資格</li><li>完成勞工健康服務醫師專業訓練 50 小時</li></ul></div>
+      <div class="stage"><div class="when">R1 → 總醫師</div><h3>中期計畫</h3><ul>
+        <li>打好實證醫學基礎</li><li>精進超音波技能</li><li class="hl">深入社區與居家醫療</li><li class="hl">完成長照共同訓練 Level 2、3</li><li>取得骨質疏鬆症學會 ISCD 認證</li><li>取得生活型態醫學專業人員認證</li></ul></div>
+      <div class="stage"><div class="when">主治醫師</div><h3>長期計畫</h3><ul>
+        <li>考取安寧緩和醫學專科醫師證照</li><li class="hl">留任醫院，深耕在地醫療</li><li class="hl">攻讀公衛碩士</li><li>報名 TASM 運動醫學專科醫師培訓課程</li><li>取得國際體重管理認證醫師資格</li><li>參加功能醫學核心專業醫師研習班</li><li>報名肌骨超音波實作工作坊</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="edu">
+  <div class="wrap">
+    <div class="sec-head"><h2>學習經歷</h2><span class="en">Education</span></div>
+    <div class="edu">
+      <div><div class="y">2019–2025</div><div class="p">長庚大學醫學系</div></div>
+      <div><div class="y">2023–2025</div><div class="p">林口長庚實習</div></div>
+      <div><div class="y">2024/08</div><div class="p">札幌醫院實習</div></div>
+      <div><div class="y">2025–2027</div><div class="p">林口長庚 PGY1–2</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="sec-head"><h2>聯絡我</h2><span class="en">Contact</span></div>
+    <div class="cgrid">
+      <div><small>電話</small><span class="val" id="v-phone">+886-970-643-736</span><button type="button" data-copy="v-phone">複製</button></div>
+      <div><small>Email</small><span class="val" id="v-mail">meitina3087@gmail.com</span><button type="button" data-copy="v-mail">複製</button></div>
+      <div><small>地址</small><span class="val" id="v-addr">桃園市桃園區莊敬路一段210巷26號</span><button type="button" data-copy="v-addr">複製</button></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap">方瑋慈 Wei-Tzu Fang ｜ 林口長庚紀念醫院 PGY2 ｜ 申請臺北市立聯合醫院陽明院區家庭醫學科 ｜ 本網站由本人與 Claude 協作製作，內容皆經本人確認</div></footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="放大檢視">
+  <button type="button" id="lbClose">關閉 ✕</button>
+  <div><img id="lbImg" alt=""><p id="lbCap"></p></div>
+</div>
+
+<script>
+const llm=[["Meta AI",95.8,"us"],["ChatGPT",94.8,"us"],["Claude",94.8,"us"],["Gemini",94.3,"us"],["DeepSeek",94.3,"cn"],["Kimi",93.8,"cn"],["千問",93.2,"cn"],["Perplexity",92.2,"us"],["Grok",91.1,"us"],["豆包",90.6,"cn"],["文心一言",88.0,"cn"]];
+const pomp=[["整體醫療制度資訊",98.6,"t"],["醫院基本資訊",89.9,"t"],["醫療翻譯資訊",87.0,"t"],["專科資訊（加分項）",78.3,"t"],["健保與費用資訊",65.2,"t"],["急診資訊",58.0,"warn"]];
+document.getElementById('pomp').innerHTML=pomp.map(([n,v,c])=>`<div class="row wide"><span>${n}</span><div class="bar"><i class="${c}" style="width:${v}%"></i></div><span class="v">${v.toFixed(1)}%</span></div>`).join('');
+const jg=[["疫情前後比較",186],["整體研究趨勢",93],["結合多種參數",49],["與其他疾病比較",34]];
+document.getElementById('jgimbars').innerHTML=jg.map(([n,v])=>`<div class="row wide"><span>${n}</span><div class="bar"><i class="t" style="width:${v/200*100}%"></i></div><span class="v">${v}</span></div>`).join('');
+document.getElementById('bars').innerHTML=llm.map(([n,v,g])=>`<div class="row"><span>${n}</span><div class="bar"><i class="${g}" style="width:${(v-80)/20*100}%"></i></div><span class="v">${v.toFixed(1)}%</span></div>`).join('');
+
+const certs=[
+ ["img/dm.jpg","臺北市糖尿病共同照護網 專業知識課程電腦考試及格","2026/08/18"],
+ ["img/smoking.jpg","戒菸服務人員資格證明（醫師）6 小時","2026/06/23"],
+ ["img/palliative.jpg","乙類社區安寧照護教育訓練線上課程 13 小時","2026/06/30"],
+ ["img/acp.jpg","預立醫療照護諮商人員訓練課程 4 小時","2026/07/01"],
+ ["img/ltc.jpg","長照共同訓練課程（Level 1）18 小時","2026/09/06"],
+ ["img/homecare.jpg","居家失能個案家庭醫師照護方案：醫師意見書訓練","2026/09/03"],
+ ["img/travel.jpg","旅遊醫學整合性服務業務人員教育訓練 7 小時","2026/07/31","land"],
+ ["img/leprosy.jpg","認識漢生病：漢生病診斷與治療之案例分享 1 小時","2026/07/31","land"]];
+document.getElementById('certGrid').innerHTML=certs.map(([src,t,d,h])=>src
+ ?`<div class="cert ${h||''}"><button type="button" data-full="${src}" data-cap="${t}"><img src="${src}" alt="${t}" loading="lazy"></button><div class="t">${t}</div><div class="d">${d}</div></div>`
+ :`<div class="cert noimg"><div class="ph"><div><strong>${h}</strong>線上課程完成</div></div><div class="t">${t}</div><div class="d">${d}</div></div>`).join('');
+
+const awards=[["img/youth.jpg","第三屆桃園時代青年行動家徵選 入圍決選（羅卡達山地醫療工作隊）","2020/10"],["img/volunteer.jpg","長庚大學志願服務黃山雀獎（150 小時）","2023/05"],["img/sunmoonlake.jpg","日月潭國際萬人泳渡 完成 3,300 公尺","2020/09"]];
+document.getElementById('awardGrid').innerHTML=awards.map(([src,t,d])=>`<div class="cert"><button type="button" data-full="${src}" data-cap="${t}"><img src="${src}" alt="${t}" loading="lazy"></button><div class="t">${t}</div><div class="d">${d}</div></div>`).join('');
+
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap'),lbClose=document.getElementById('lbClose');
+let lastBtn=null;
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-full]');
+  if(b){lastBtn=b;lbImg.src=b.dataset.full;lbImg.alt=b.dataset.cap;lbCap.textContent=b.dataset.cap;lb.hidden=false;lbClose.focus();return;}
+  const c=e.target.closest('[data-copy]');
+  if(c){const el=document.getElementById(c.dataset.copy);const txt=el.textContent;
+    const done=()=>{c.textContent='已複製';setTimeout(()=>c.textContent='複製',1500)};
+    try{navigator.clipboard.writeText(txt).then(done,()=>sel(el))}catch(_){sel(el)}}
+});
+function sel(el){const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r)}
+function closeLb(){lb.hidden=true;lbImg.src='';if(lastBtn)lastBtn.focus()}
+lbClose.addEventListener('click',closeLb);
+lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!lb.hidden)closeLb()});
+</script>
+
+</body>
+</html>
